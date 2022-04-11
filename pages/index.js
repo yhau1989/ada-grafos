@@ -25,10 +25,10 @@ export default function Home() {
     if (active && payload && payload.length) {
       return (
         <div style={{fontSize: '12px', backgroundColor: '#ffffff', padding:'4px 4px 4px 4px', border: 'solid .5px #c4c4c4', lineHeight: '.5rem'}}>
-          <p><strong>Autoconfianza Digital</strong>{`: ${payload[0].value}`}</p>
-          <p><strong>Proactividad Digital</strong>{`: ${payload[1].value}`}</p>
-          <p><strong>Adaptabilidad Digital</strong>{`: ${payload[2].value}`}</p>
           <p><strong>Fecha</strong>{`: ${payload[0].payload.fecha}`}</p>
+          <p><strong>Adaptabilidad Digital</strong>{`: ${payload[2].value}`}</p>
+          <p>Autoconfianza Digital{`: ${payload[0].value}`}</p>
+          <p>Proactividad Digital{`: ${payload[1].value}`}</p>
         </div>
       );
     }
@@ -78,7 +78,7 @@ export default function Home() {
             <Tooltip cursor={{ strokeDasharray: "2 2", stroke: '#00DFDF', strokeWidth: 2 }} itemStyle={{ fontSize:'12px' }} /> */}
               <XAxis type="number" dataKey="con_dig" style={{ fontSize:'12px' }} label={{ value: 'Autoconfianza Digital', position: 'insideBottom', offset: -10 }} name="Autoconfianza Digital" />
               <YAxis type="number" dataKey="pro_dig" style={{ fontSize:'12px' }} label={{ value: 'Proactividad Digital', angle: -90, position: 'insideBottomLeft'}} name="Proactividad Digital" />
-              <ZAxis dataKey="ada" name="Adaptabilidad Digital"/>
+              <ZAxis dataKey="ada"  name="Adaptabilidad Digital"/>
               <Tooltip content={<CustomTooltip />} cursor={{ strokeDasharray: "2 2", stroke: '#00DFDF', strokeWidth: 2 }} />
               <Scatter name="A school" data={data} fill="#FE01A4" line={{ strokeWidth: 1}} />
             </ScatterChart>
