@@ -8,7 +8,10 @@ import {
   ZAxis,
   ReferenceLine,
   LabelList,
-  ResponsiveContainer
+  ResponsiveContainer,
+  Label,
+  CartesianGrid,
+  ReferenceArea,
 } from "recharts";
 
 export default function Home() {
@@ -67,20 +70,33 @@ export default function Home() {
                 left: 10,
               }}
             >
-              {/* <ReferenceLine x={100} stroke="gray" />
-              <ReferenceLine y={60} label="Abr 10 2022"  stroke="gray" /> */}
-              {/* <CartesianGrid /> */}
+              <ReferenceLine x={79} stroke="gray" strokeDasharray="3 3"/>
+              <ReferenceLine y={79} stroke="gray" strokeDasharray="3 3"/>
+              {/* <CartesianGrid>
+                
+              </CartesianGrid> */}
               {/* 
               <ReferenceLine y={30} label="min" stroke="red" /> */}
               {/* <XAxis type="number" dataKey="con_dig" style={{ fontSize:'12px' }} label={{ value: 'Autoconfianza Digital', position: 'insideBottom', offset: -10 }} name="Autoconfianza Digital" />
               <YAxis type="number" dataKey="pro_dig" style={{ fontSize:'12px' }} label={{ value: 'Proactividad Digital', angle: -90, position: 'insideBottomLeft'}} name="Proactividad Digital" />
               <ZAxis dataKey="ada" name="Adaptabilidad Digital"/>
             <Tooltip cursor={{ strokeDasharray: "2 2", stroke: '#00DFDF', strokeWidth: 2 }} itemStyle={{ fontSize:'12px' }} /> */}
-              <XAxis type="number" dataKey="con_dig" style={{ fontSize:'12px' }} label={{ value: 'Autoconfianza Digital', position: 'insideBottom', offset: -10 }} name="Autoconfianza Digital" />
+              
+              <ReferenceArea x1={0} x2={79} y1={79} y2={100}  fill="gray" opacity={0.8} />
+              <ReferenceArea x1={79} x2={100} y1={79} y2={100} fill="#00DFDF"  />
+              <ReferenceArea x1={79} x2={100} y1={0} y2={79} fill="gray" opacity={0.2} />
+              <XAxis type="number" dataKey="con_dig" style={{ fontSize:'12px' }} label={{ value: 'Autoconfianza Digital', position: 'insideBottom', offset: -10 }} name="Autoconfianza Digital" >
+              </XAxis>
               <YAxis type="number" dataKey="pro_dig" style={{ fontSize:'12px' }} label={{ value: 'Proactividad Digital', angle: -90, position: 'insideBottomLeft'}} name="Proactividad Digital" />
-              <ZAxis dataKey="ada"  name="Adaptabilidad Digital"/>
-              <Tooltip content={<CustomTooltip />} cursor={{ strokeDasharray: "2 2", stroke: '#00DFDF', strokeWidth: 2 }} />
-              <Scatter name="A school" data={data} fill="#FE01A4" line={{ strokeWidth: 1}} />
+              <ZAxis dataKey="ada"  name="Adaptabilidad Digital">
+                
+              </ZAxis>
+              <Tooltip content={<CustomTooltip />} cursor={{ strokeDasharray: "2 2", stroke: '#000000', strokeWidth: 2 }} />
+              {/* <Scatter name="A school" data={data} fill="#FE01A4" line={{ strokeWidth: 1}}> */}
+              <Scatter name="A school" data={data} fill="#000000" >
+                <Label value="Pages of my website" offset={4} position="center" />
+              </Scatter>
+
             </ScatterChart>
           </ResponsiveContainer>
         </div>
